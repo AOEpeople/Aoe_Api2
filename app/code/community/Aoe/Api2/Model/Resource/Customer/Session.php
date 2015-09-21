@@ -57,11 +57,11 @@ class Aoe_Api2_Model_Resource_Customer_Session extends Aoe_Api2_Model_Resource
         $session = $this->getHelper()->getCustomerSession();
         $customer = $session->getCustomer();
 
-        return array(
+        return [
             'isloggedin' => $customer && $customer->getId(),
             'firstname'  => $customer->getFirstname(),
             'lastname'   => $customer->getLastname(),
-        );
+        ];
     }
 
     public function login(array $data)

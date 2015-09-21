@@ -7,7 +7,7 @@ class Aoe_Api2_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function getCoreSession()
     {
-        return Mage::getSingleton('core/session', array('name' => Mage_Core_Controller_Front_Action::SESSION_NAMESPACE));
+        return Mage::getSingleton('core/session', ['name' => Mage_Core_Controller_Front_Action::SESSION_NAMESPACE]);
     }
 
     /**
