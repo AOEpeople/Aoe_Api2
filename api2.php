@@ -1,10 +1,24 @@
 <?php
-if (version_compare(phpversion(), '5.2.0', '<')) {
-    if (!headers_sent()) {
-        header('HTTP/1.1 500');
+function sendError($code, $message = null)
+{
+    $code = intval($code);
+    if ($code < 500 || $code >= 600) {
+        throw new Exception('Invalid response code');
     }
-    echo 'Service temporary unavailable';
+
+    if (!headers_sent()) {
+        header('HTTP/1.1 ' . intval($code));
+    }
+
+    if ($message) {
+        echo $message;
+    }
+
     exit;
+}
+
+if (version_compare(phpversion(), '5.2.0', '<')) {
+    sendError(500, 'Internal Server Error');
 }
 
 // Store the Magento root directory
@@ -17,14 +31,12 @@ if (file_exists($bootstrapFilename)) {
 
 $mageFilename = MAGENTO_ROOT . '/app/Mage.php';
 if (!file_exists($mageFilename)) {
-    echo 'Mage file not found';
-    exit;
+    sendError(500, 'Internal Server Error');
 }
 require $mageFilename;
 
 if (!Mage::isInstalled()) {
-    echo 'Application is not installed yet, please complete install wizard first.';
-    exit;
+    sendError(500, 'Internal Server Error');
 }
 
 if (isset($_SERVER['MAGE_IS_DEVELOPER_MODE'])) {
@@ -55,11 +67,7 @@ $apiType = Mage::app()->getRequest()->getParam('type');
 
 // Check if the request can be processed by Mage_Api2
 if (!in_array($apiType, Mage_Api2_Model_Server::getApiTypes())) {
-    if (!headers_sent()) {
-        header('HTTP/1.1 500');
-    }
-    echo 'Service temporary unavailable';
-    exit;
+    sendError(500, 'Internal Server Error');
 }
 
 /** @var $server Mage_Api2_Model_Server */
