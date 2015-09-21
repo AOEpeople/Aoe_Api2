@@ -1,0 +1,21 @@
+{
+    "name": "aoepeople/aoe_api2",
+    "description": "Magento Mage_Api2 Enhancements and Fixes",
+    "authors": [
+        {
+            "name": "Lee Saferite",
+            "email": "lee.saferite@aoe.com"
+        }
+    ],
+    "license": "OSL-3.0",
+    "type": "magento-module",
+    "require": {
+        "php": ">= 5.4",
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "require-dev": {
+        "ecomdev/ecomdev_phpunit": "*",
+        "squizlabs/php_codesniffer": "*",
+        "phpmd/phpmd": "*"
+    }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Aoe_Api2>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Core/>
+                <Mage_Api2/>
+                <Mage_Customer/>
+            </depends>
+        </Aoe_Api2>
+    </modules>
+</config>
