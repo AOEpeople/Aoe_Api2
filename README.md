@@ -1,6 +1,6 @@
 [![AOE](aoe-logo.png)](http://www.aoe.com)
 
-# Aoe_Api2 Magento Module
+# Aoe_Api2 Magento Module [![Build Status](https://travis-ci.org/AOEpeople/Aoe_Api2.svg?branch=master)](https://travis-ci.org/AOEpeople/Aoe_Api2)
 
 **NOTE**: This module is NOT ready for public consumption. Once it is ready we will tag a 1.0.0 version.
 
