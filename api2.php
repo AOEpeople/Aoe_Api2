@@ -48,7 +48,7 @@ if (isset($_SERVER['MAGE_IS_DEVELOPER_MODE'])) {
 
 Mage::$headersSentThrowsException = false;
 
-$mageRunCode = isset($_SERVER['MAGE_RUN_CODE']) ? $_SERVER['MAGE_RUN_CODE'] : 'admin';
+$mageRunCode = isset($_SERVER['MAGE_RUN_CODE']) ? $_SERVER['MAGE_RUN_CODE'] : '';
 $mageRunType = isset($_SERVER['MAGE_RUN_TYPE']) ? $_SERVER['MAGE_RUN_TYPE'] : 'store';
 Mage::init($mageRunCode, $mageRunType);
 
